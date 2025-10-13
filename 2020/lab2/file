@@ -1,0 +1,15 @@
+me@DESKTOP:/mnt/c/Users/Max Kar/Desktop/МАИ/ДА/lab1.25$ ./t 1000 > input.txt 
+me@DESKTOP:/mnt/c/Users/Max Kar/Desktop/МАИ/ДА/lab1.25$ ./p < input.txt 
+Radix sort time: 4401us
+STL stable sort time: 2164us
+Input array size: 1000
+me@DESKTOP:/mnt/c/Users/Max Kar/Desktop/МАИ/ДА/lab1.25$ ./t 10000 > input.txt
+me@DESKTOP:/mnt/c/Users/Max Kar/Desktop/МАИ/ДА/lab1.25$ ./p < input.txt
+Radix sort time: 81708us
+STL stable sort time: 41788us
+Input array size: 10000
+me@DESKTOP:/mnt/c/Users/Max Kar/Desktop/МАИ/ДА/lab1.25$ ./t 1000000 > input.txt
+^[[Ame@DESKTOP:/mnt/c/Users/Max Kar/Desktop/МАИ/ДА/lab1.25$ ./p < input.txt
+Radix sort time: 13226569us
+STL stable sort time: 7176365us
+Input array size: 1000000
