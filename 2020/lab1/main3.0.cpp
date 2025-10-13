@@ -77,3 +77,63 @@ void RadixSort(TKeyValuePair* pairs, size_t size) {
     }
     delete[] tempArray;
 }
+
+int main() {
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+
+    size_t capacity = 16;
+    size_t size = 0;
+    TKeyValuePair* pairs = new TKeyValuePair[capacity];
+    
+    char line[MAX_STRING_LENGTH * 2];
+    while (std::cin.getline(line, sizeof(line))) {
+        if (strlen(line) == 0) continue;
+        
+        if (size >= capacity) {
+            capacity *= 2;
+            TKeyValuePair* newPairs = new TKeyValuePair[capacity];
+            for (size_t i = 0; i < size; i++) {
+                newPairs[i] = pairs[i];
+            }
+            delete[] pairs;
+            pairs = newPairs;
+        }
+
+        char* delimiter = strrchr(line, '\t');
+        if (!delimiter) {
+            char* last_space = nullptr;
+            char* p = line;
+            while (*p) {
+                if (*p == ' ' && *(p+1) != ' ' && *(p+1) != '\0') {
+                    last_space = p;
+                }
+                p++;
+            }
+            delimiter = last_space;
+        }
+        
+        if (!delimiter) continue;
+        
+        *delimiter = '\0';
+        char* number = line;
+        char* value = delimiter + 1;
+        
+        while (*value == ' ') value++;
+        
+        pairs[size] = TKeyValuePair(number, value);
+        size++;
+    }
+    RadixSort(pairs, size);
+
+    // Выводим результаты
+    for (size_t i = 0; i < size; i++) {
+        std::cout << pairs[i].number[0] << ' ' 
+                 << pairs[i].number[1] << pairs[i].number[2] << pairs[i].number[3] << ' '
+                 << pairs[i].number[4] << pairs[i].number[5] << '\t'
+                 << pairs[i].value << '\n';
+    }
+
+    delete[] pairs;
+    return 0;
+}
