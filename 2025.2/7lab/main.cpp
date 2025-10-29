@@ -14,7 +14,6 @@ int main() {
     for (size_t i = 0; i < n; i++) {
         vector<int64_t> row(n, 0);
         poli_count[i] = row;
-<<<<<<< HEAD
         poli_count[i][i] = 1;
     }
 
@@ -30,28 +29,6 @@ int main() {
             }
             i++;
             
-=======
-    }
-
-    for (size_t i = 0; i < n; i++) {
-        for (size_t j = 0; j < n; j++) {
-            if (i == j) {
-                poli_count[i][j] = 1;
-            }
-        }
-    }
-
-    for (size_t l = 1; l <= n; l++) {
-        int i = 0;
-        while(i + l < n) {        
-            if(s[i] == s[i + l]) {            
-                poli_count[i][i + l] = poli_count[i + 1][i + l] + poli_count[i][i + l - 1] + 1;
-            }
-            else {                        
-                poli_count[i][i + l] = poli_count[i + 1][i + l] + poli_count[i][i + l - 1] - poli_count[i + 1][i + l - 1];
-            }
-            i++;
->>>>>>> 8d890ca5ca283e30814d936e28ecd649c5e3d7c2
         }
     }
     
